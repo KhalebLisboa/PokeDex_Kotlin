@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface PokeService {
 
     @GET("pokemon.json")
-    suspend fun fetchData() : Response<Pokemons>
+    suspend fun fetchData() : Response<List<Pokemons>>
 }
