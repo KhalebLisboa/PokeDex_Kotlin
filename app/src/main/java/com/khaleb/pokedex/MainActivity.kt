@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel._warPets.observe(this, {
             if (viewModel._warPets.value != null){
-                binding.txt.text = viewModel._warPets.value?.pokes?.get(0)?.name
+                binding.txt.text = viewModel.warPets.value?.get(0)?.name
                 }
         })
 
