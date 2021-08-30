@@ -2,6 +2,7 @@ package com.khaleb.pokedex.view
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +33,12 @@ class PokedexAdapter(
         Glide.with(context)
             .load(teste[position].imageurl)
             .into(holder.binding.imgPokemon)
+
+        teste[position].typeofpokemon.forEach{
+            if(it == "Grass"){
+                 holder.binding.imgTypeFire.visibility = View.VISIBLE
+            }
+        }
 
 
     }
