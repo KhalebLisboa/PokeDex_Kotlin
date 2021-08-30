@@ -12,7 +12,8 @@
         android:text="Pokédex"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginLeft="@dimen/_24sdp"
         android:fontFamily="sans-serif-medium"
         android:textStyle="bold"
         android:textColor="@color/red"
@@ -29,7 +30,8 @@
         android:elevation="@dimen/_1sdp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeWidth="0dp"
-        android:hint="Search for a Pokémon">
+        android:hint="Search for a Pokémon"
+        app:hintTextColor="@color/transparency">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtTxt_search"
@@ -40,6 +42,16 @@
             android:drawableStart="@drawable/ic_search"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/inputTxtLayout_search"
+        android:text="The Pokédex contains detailed stats for every creature from the Pokémon games"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/inputTxtLayout_search"/>
 
     <ImageView
         android:layout_width="272dp"
@@ -56,7 +68,8 @@
         android:id="@+id/recycler_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/inputTxtLayout_search"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/txt_description"
         tools:listitem="@layout/layout_icon_recycler"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

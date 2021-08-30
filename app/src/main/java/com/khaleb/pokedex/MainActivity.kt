@@ -11,12 +11,8 @@ import com.khaleb.pokedex.viewmodel.PokedexViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel : PokedexViewModel
-    lateinit var viewModelFactory : PokedexViewModelFactory
-
     lateinit var binding: ActivityMainBinding
     lateinit var view : View
-    private var repository = RepositoryPokedex()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

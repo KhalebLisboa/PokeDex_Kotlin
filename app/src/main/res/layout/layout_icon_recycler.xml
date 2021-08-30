@@ -9,8 +9,10 @@
             android:id="@+id/materialCard_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
             android:backgroundTint="@color/grass"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp"
             app:cardCornerRadius="@dimen/_10sdp"
             app:layout_constraintTop_toTopOf="parent">
 
