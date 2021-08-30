@@ -4,9 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.khaleb.pokedex.R
 import com.khaleb.pokedex.databinding.LayoutIconRecyclerBinding
 import com.khaleb.pokedex.model.Pokemon
 
@@ -34,11 +36,10 @@ class PokedexAdapter(
             .load(teste[position].imageurl)
             .into(holder.binding.imgPokemon)
 
-        teste[position].typeofpokemon.forEach{
-            if(it == "Grass"){
-                 holder.binding.imgTypeFire.visibility = View.VISIBLE
-            }
+        when(teste[position].typeofpokemon.size){
+            1 -> checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[0])
         }
+
 
 
     }
@@ -50,5 +51,15 @@ class PokedexAdapter(
     fun update(pokeList : List<Pokemon>){
         teste.addAll(pokeList)
         notifyDataSetChanged()
+    }
+
+
+    private fun checkPokemonType(view : ImageView, type : String ){
+        when(type){
+            "Fire" ->{
+                view.setImageResource(R.drawable.ic_type_flying)
+                view.visibility = View.VISIBLE
+            }
+        }
     }
 }
