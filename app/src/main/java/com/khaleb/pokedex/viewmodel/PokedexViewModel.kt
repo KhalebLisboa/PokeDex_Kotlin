@@ -19,10 +19,10 @@ class PokedexViewModel(
 
     fun fetchData(context : Context){
         viewModelScope.launch {
-            warPets.value =
-                repositoryPokedex.fetchNetworkData()
 
-            if(warPets.value != null){
+
+            if(warPets.value == null){
+                warPets.value = repositoryPokedex.fetchNetworkData()
                 Toast.makeText(context, warPets.value!![0].name, Toast.LENGTH_LONG).show()
             }
         }
