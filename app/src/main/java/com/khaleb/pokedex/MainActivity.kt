@@ -25,17 +25,5 @@ class MainActivity : AppCompatActivity() {
         view = binding.root
         setContentView(view)
 
-
-        viewModelFactory = PokedexViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory)[PokedexViewModel::class.java]
-        viewModel.fetchData(this)
-
-        viewModel._warPets.observe(this, {
-            if (viewModel._warPets.value != null){
-                binding.txt.text = viewModel.warPets.value?.get(0)?.name
-                }
-        })
-
-
     }
 }
