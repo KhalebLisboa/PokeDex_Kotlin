@@ -17,11 +17,9 @@ import com.khaleb.pokedex.viewmodel.PokedexViewModelFactory
 
 class MainFragment : Fragment() {
 
-    private lateinit var mFragment : FragmentMainBinding
-    private lateinit var viewModel : PokedexViewModel
-    private  lateinit var adapter: PokedexAdapter
-    private var dataList = listOf<Pokemon>()
-
+    private lateinit var mFragment: FragmentMainBinding
+    private lateinit var viewModel: PokedexViewModel
+    private lateinit var adapter: PokedexAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,8 +28,6 @@ class MainFragment : Fragment() {
     ): View {
         mFragment = FragmentMainBinding.inflate(layoutInflater)
         return mFragment.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,32 +35,20 @@ class MainFragment : Fragment() {
 
         val repo = RepositoryPokedex()
         val vmFactory = PokedexViewModelFactory(repo)
-
         viewModel = ViewModelProvider(this, vmFactory)[PokedexViewModel::class.java]
 
         fetchData()
         setupObservers()
 
-        adapter = PokedexAdapter( requireContext())
+        adapter = PokedexAdapter(requireContext())
         mFragment.recyclerMain.adapter = adapter
 
-
-
-
     }
 
-    private fun fetchData(){
+    private fun fetchData() = viewModel.fetchData(requireContext())
 
-        viewModel.fetchData(requireContext())
-
-
-    }
-
-    private fun setupObservers(){
+    private fun setupObservers() {
         viewModel.warPets.observe(viewLifecycleOwner, {
-
-
-            Toast.makeText(requireContext(), "Atualizou", Toast.LENGTH_LONG).show()
             adapter.update(it)
         })
     }

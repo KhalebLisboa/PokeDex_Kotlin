@@ -30,30 +30,7 @@ class PokedexAdapter(
 
     override fun onBindViewHolder(holder: PokedexAdapter.ViewHolder, position: Int) {
 
-        holder.binding.imgTypeFire.visibility = View.GONE
-        holder.binding.imgTypeNormal.visibility = View.GONE
-        holder.binding.imgTypeWater.visibility = View.GONE
-
-        holder.binding.txtName.text = teste[position].name
-        holder.binding.txtId.text = teste[position].id
-
-        Glide.with(context)
-            .load(teste[position].imageurl)
-            .into(holder.binding.imgPokemon)
-
-        when (teste[position].typeofpokemon.size) {
-            1 -> checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
-            2 -> {
-                checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
-                checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
-            }
-            3 -> {
-                checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
-                checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
-                checkPokemonType(holder.binding.imgTypeNormal, teste[position].typeofpokemon[2])
-            }
-            else -> {}
-        }
+        setView(holder, position)
 
 
     }
@@ -121,4 +98,33 @@ class PokedexAdapter(
             else -> view.visibility = View.GONE
         }
     }
+
+    private fun setView(holder : ViewHolder, position: Int){
+        holder.binding.imgTypeFire.visibility = View.GONE
+        holder.binding.imgTypeNormal.visibility = View.GONE
+        holder.binding.imgTypeWater.visibility = View.GONE
+
+        holder.binding.txtName.text = teste[position].name
+        holder.binding.txtId.text = teste[position].id
+
+        Glide.with(context)
+            .load(teste[position].imageurl)
+            .into(holder.binding.imgPokemon)
+
+        when (teste[position].typeofpokemon.size) {
+            1 -> checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
+            2 -> {
+                checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
+                checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
+            }
+            3 -> {
+                checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
+                checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
+                checkPokemonType(holder.binding.imgTypeNormal, teste[position].typeofpokemon[2])
+            }
+            else -> {}
+        }
+    }
+
+    private fun clickItem(){}
 }
