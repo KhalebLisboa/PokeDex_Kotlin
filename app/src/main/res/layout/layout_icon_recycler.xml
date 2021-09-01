@@ -9,6 +9,7 @@
             android:id="@+id/materialCard_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:backgroundTint="@color/grass"
             android:layout_marginHorizontal="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"

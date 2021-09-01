@@ -62,7 +62,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="-100dp"
         android:layout_marginRight="-50dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:alpha="0.3"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_main"

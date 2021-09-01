@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.annotation.NonNull
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.khaleb.pokedex.R
@@ -31,6 +33,7 @@ class PokedexAdapter(
     override fun onBindViewHolder(holder: PokedexAdapter.ViewHolder, position: Int) {
 
         setView(holder, position)
+        clickItem(holder.binding.materialCardIcon, teste[position])
 
 
     }
@@ -126,5 +129,11 @@ class PokedexAdapter(
         }
     }
 
-    private fun clickItem(){}
+    private fun clickItem(view : View, pokemon: Pokemon){
+        view.setOnClickListener {
+            Toast.makeText(context, pokemon.name, Toast.LENGTH_LONG).show()
+
+            view.findNavController().navigate(R.id.action_mainFragment_to_descriptionFragment)
+        }
+    }
 }

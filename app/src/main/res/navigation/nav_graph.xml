@@ -9,5 +9,14 @@
         android:id="@+id/mainFragment"
         android:name="com.khaleb.pokedex.view.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_descriptionFragment"
+            app:destination="@id/descriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.khaleb.pokedex.view.DescriptionFragment"
+        android:label="DescriptionFragment"
+        tools:layout="@layout/fragment_description"/>
 </navigation>
