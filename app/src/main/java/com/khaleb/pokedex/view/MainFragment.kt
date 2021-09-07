@@ -35,7 +35,7 @@ class MainFragment : Fragment() {
 
         val repo = RepositoryPokedex()
         val vmFactory = PokedexViewModelFactory(repo)
-        viewModel = ViewModelProvider(this, vmFactory)[PokedexViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity(), vmFactory)[PokedexViewModel::class.java]
 
         fetchData()
         setupObservers()

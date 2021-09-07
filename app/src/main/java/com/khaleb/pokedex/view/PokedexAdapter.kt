@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.NonNull
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -33,7 +34,7 @@ class PokedexAdapter(
     override fun onBindViewHolder(holder: PokedexAdapter.ViewHolder, position: Int) {
 
         setView(holder, position)
-        clickItem(holder.binding.materialCardIcon, teste[position])
+        clickItem(holder.binding.materialCardIcon, position)
 
 
     }
@@ -129,11 +130,11 @@ class PokedexAdapter(
         }
     }
 
-    private fun clickItem(view : View, pokemon: Pokemon){
+    private fun clickItem(view : View, position : Int){
         view.setOnClickListener {
-            Toast.makeText(context, pokemon.name, Toast.LENGTH_LONG).show()
-
-            view.findNavController().navigate(R.id.action_mainFragment_to_descriptionFragment)
+            Toast.makeText(context, teste[position].name, Toast.LENGTH_LONG).show()
+            val bundle = bundleOf("position" to position)
+            view.findNavController().navigate(R.id.action_mainFragment_to_descriptionFragment, bundle)
         }
     }
 }

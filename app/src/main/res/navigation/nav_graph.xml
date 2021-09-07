@@ -18,5 +18,6 @@
         android:id="@+id/descriptionFragment"
         android:name="com.khaleb.pokedex.view.DescriptionFragment"
         android:label="DescriptionFragment"
-        tools:layout="@layout/fragment_description"/>
+        tools:layout="@layout/fragment_description">
+    </fragment>
 </navigation>
