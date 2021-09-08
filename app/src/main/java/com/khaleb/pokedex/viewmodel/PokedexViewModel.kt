@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.khaleb.pokedex.model.Pokemon
 import com.khaleb.pokedex.model.repository.RepositoryPokedex
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class PokedexViewModel(
     private var repositoryPokedex: RepositoryPokedex
@@ -20,8 +21,13 @@ class PokedexViewModel(
     fun fetchData(context : Context){
         viewModelScope.launch {
             if(warPets.value == null){
-                warPets.value = repositoryPokedex.fetchNetworkData()
-                Toast.makeText(context, warPets.value!![0].name, Toast.LENGTH_LONG).show()
+                try {
+                    warPets.value = repositoryPokedex.fetchNetworkData()
+                    Toast.makeText(context, warPets.value!![0].name, Toast.LENGTH_LONG).show()
+                }
+                catch (e : Exception){
+                    Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

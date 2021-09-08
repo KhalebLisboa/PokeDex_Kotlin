@@ -37,11 +37,23 @@ class DescriptionFragment : Fragment() {
         viewmodel.warPets.value?.get(arguments?.getInt("position")!!).let {
             bind.txtName.text = it?.name
             bind.txtId.text = it?.id
+            it?.typeofpokemon?.get(0)?.let { it1 ->
+                PokemonUIDetails().checkPokemonType(
+                    bind.imgTypeOne, it1
+                )
+            }
+            if (it?.typeofpokemon?.size!! > 1)
+                it.typeofpokemon[1].let { it2 ->
+                    PokemonUIDetails().checkPokemonType(
+                        bind.imgTypeTwo, it2
+                    )
+                }
+            else
+                bind.imgTypeTwo.visibility = View.GONE
 
             Glide.with(requireContext())
-                .load(it?.imageurl)
+                .load(it.imageurl)
                 .into(bind.imgPokemon)
         }
-
     }
 }

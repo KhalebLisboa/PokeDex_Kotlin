@@ -49,60 +49,6 @@ class PokedexAdapter(
     }
 
 
-    private fun checkPokemonType(view: ImageView, type: String) {
-        when (type) {
-            "Fire" -> {
-                view.setImageResource(R.drawable.ic_type_fire)
-                view.visibility = View.VISIBLE
-            }
-            "Water" -> {
-                view.setImageResource(R.drawable.ic_type_water)
-                view.visibility = View.VISIBLE
-            }
-            "Grass" -> {
-                view.setImageResource(R.drawable.ic_type_grass)
-                view.visibility = View.VISIBLE
-            }
-            "Psychic" -> {
-                view.setImageResource(R.drawable.ic_type_psychic)
-                view.visibility = View.VISIBLE
-            }
-            "Poison" -> {
-                view.setImageResource(R.drawable.ic_type_poison)
-                view.visibility = View.VISIBLE
-            }
-            "Flying" -> {
-                view.setImageResource(R.drawable.ic_type_flying)
-                view.visibility = View.VISIBLE
-            }
-            "Rock" -> {
-                view.setImageResource(R.drawable.ic_type_rock)
-                view.visibility = View.VISIBLE
-            }
-            "Fighting" -> {
-                view.setImageResource(R.drawable.ic_type_fighting)
-                view.visibility = View.VISIBLE
-            }
-            "Electric" -> {
-                view.setImageResource(R.drawable.ic_type_electric)
-                view.visibility = View.VISIBLE
-            }
-            "Ground" -> {
-                view.setImageResource(R.drawable.ic_type_ground)
-                view.visibility = View.VISIBLE
-            }
-            "Steel" -> {
-                view.setImageResource(R.drawable.ic_type_steel)
-                view.visibility = View.VISIBLE
-            }
-            "Normal" -> {
-                view.setImageResource(R.drawable.ic_type_normal)
-                view.visibility = View.VISIBLE
-            }
-            else -> view.visibility = View.GONE
-        }
-    }
-
     private fun setView(holder : ViewHolder, position: Int){
         holder.binding.imgTypeFire.visibility = View.GONE
         holder.binding.imgTypeNormal.visibility = View.GONE
@@ -116,15 +62,15 @@ class PokedexAdapter(
             .into(holder.binding.imgPokemon)
 
         when (teste[position].typeofpokemon.size) {
-            1 -> checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
+            1 -> PokemonUIDetails().checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
             2 -> {
-                checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
-                checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
+                PokemonUIDetails().checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
+                PokemonUIDetails().checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
             }
             3 -> {
-                checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
-                checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
-                checkPokemonType(holder.binding.imgTypeNormal, teste[position].typeofpokemon[2])
+                PokemonUIDetails().checkPokemonType(holder.binding.imgTypeWater, teste[position].typeofpokemon[0])
+                PokemonUIDetails().checkPokemonType(holder.binding.imgTypeFire, teste[position].typeofpokemon[1])
+                PokemonUIDetails().checkPokemonType(holder.binding.imgTypeNormal, teste[position].typeofpokemon[2])
             }
             else -> {}
         }
