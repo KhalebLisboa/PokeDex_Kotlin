@@ -37,6 +37,8 @@ class DescriptionFragment : Fragment() {
         viewmodel.warPets.value?.get(arguments?.getInt("position")!!).let {
             bind.txtName.text = it?.name
             bind.txtId.text = it?.id
+            bind.txtDescription.text = it?.xdescription
+
             it?.typeofpokemon?.get(0)?.let { it1 ->
                 PokemonUIDetails().checkPokemonType(
                     bind.imgTypeOne, it1
